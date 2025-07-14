@@ -1,0 +1,216 @@
+/*body style*/
+body {
+  background: rgb(136, 203, 171);
+  background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, rgba(0, 13, 60, 1) 100%);
+  margin: 0;
+  font-family: 'Merriweather', serif;
+  color: #fff;
+}
+
+/*Typography*/
+h1 {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 3em;
+  margin: 2em 1rem;
+}
+@media only screen and (min-width: 35em) { 
+  h1 {
+      font-size: 7em;
+      margin: 2em 4rem 1em;
+  }
+}
+
+h2 {
+  border-bottom: 1px solid #cc1;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 3em;
+  color: #fff;
+}
+
+p {
+  line-height: 1.6em;
+  color: #eee;
+}
+
+/*layout*/
+main {
+  margin: 10vh 1em;
+}
+
+.main__hero {
+  min-height: 40vh;
+  padding-top: 3em;
+}
+
+section {
+  position: relative;
+  min-height: 80vh;
+  margin-top: 60px;
+  padding-top: 60px;
+  top: -60px;
+}
+
+/*navigation style*/
+.navbar__menu {
+  text-align: right;
+}
+
+.navbar__menu ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar__menu li {
+  display: inline-block;
+}
+
+.navbar__menu a {
+  display: block;
+  padding: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #f2f3f5;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar__menu a:hover {
+  background: #aaa6a6;
+  color: #fff;
+}
+
+/* Header Styles */
+.page__header {
+  background: #263554;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+/* Footer Styles */
+.page__footer {
+  background: #263554;
+  padding: 3em;
+  position: relative;
+  color: #fff;
+}
+
+.page__footer p {
+  color: #fff;
+}
+
+/*active detect style*/
+.active {
+  color: #fff; 
+  font-weight: bold;
+}
+
+/*landing container style*/
+.landing__container {
+  padding: 1em;
+  text-align: left;
+}
+
+@media only screen and (min-width: 35em) {
+  .landing__container {
+      max-width: 50em;
+      padding: 4em;
+  }
+}
+section:nth-of-type(even) .landing__container {
+  text-align: right; 
+}
+
+section:nth-child(even) {
+  background: #f2f2f2;
+}
+/* Background Circles */
+section:nth-of-type(odd) .landing__container::before,
+section:nth-of-type(even) .landing__container::before {
+  content: '';
+  position: absolute;
+  z-index: -5;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+section:nth-of-type(odd) .landing__container::before {
+  background: rgba(255, 255, 255, 0.187);
+  width: 20vh;
+  height: 20vh;
+}
+
+section:nth-of-type(even) .landing__container::before {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  top: 3em;
+  right: 3em;
+  width: 10vh;
+  height: 10vh;
+}
+
+section:nth-of-type(3n) .landing__container::after,
+section:nth-of-type(3n + 1) .landing__container::after {
+  content: '';
+  position: absolute;
+  z-index: -5;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  right: 0;
+  bottom: 0;
+  width: 10vh;
+  height: 10vh;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  right: 20vw;
+  bottom: -5em;
+  width: 15vh;
+  height: 15vh;
+}
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+
+section.active {
+  background: linear-gradient(0deg, rgba(0, 255, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.menu__link.active {
+  color: rgb(83, 97, 126); 
+  font-weight: bold;
+}
+
+section.your-active-class .landing__container::before,
+section.your-active-class .landing__container::after {
+  opacity: 1;
+}
+
+section.your-active-class .landing__container::before {
+  animation: rotate 4s linear infinite forwards;
+}
+
+section.your-active-class .landing__container::after {
+  animation: rotate 5s linear infinite forwards reverse;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+  from {
+      transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
+
+
+
